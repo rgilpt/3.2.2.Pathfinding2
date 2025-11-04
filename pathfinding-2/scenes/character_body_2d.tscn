@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgoqlbr8inkq7"]
+
+[ext_resource type="Script" uid="uid://cf0kuifr3bx4s" path="res://scripts/character_body_2d.gd" id="1_g2brh"]
+[ext_resource type="Texture2D" uid="uid://4lrqmaysnsfe" path="res://assets/farmer.png" id="2_dn4c7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2brh"]
+size = Vector2(52, 17)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_4wyf3"]
+points = PackedVector2Array(102, -95, 156, -2, 110, 104, 0, 0)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_g2brh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -25)
+texture = ExtResource("2_dn4c7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_g2brh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6, -45)
+shape = SubResource("ConvexPolygonShape2D_4wyf3")
